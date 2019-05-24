@@ -14,11 +14,11 @@ public class Programa {
 	public static void main(String[] args) {
 		
 		Scanner input = new Scanner(System.in);
-		Scanner input2 = input;
+		Scanner input2 = new Scanner(System.in);
 		Integer id;
 		
 		while(true){
-			EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("");
+			EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("jpa");
 			EntityManager entityManager = entityManagerFactory.createEntityManager();
 			
 			System.out.println("0 para sair");
@@ -46,7 +46,7 @@ public class Programa {
 			}
 			else if( a==2 ) {
 
-				String jpql = "SELECT p FROM Pessoa p";
+				String jpql = "SELECT p FROM Prato p";
 				List<Prato> pessoas = entityManager.createQuery(jpql,Prato.class).getResultList();
 				System.out.println(pessoas);		
 			}
